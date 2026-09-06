@@ -1,0 +1,14 @@
+# Ghostty v1 baseline — see docs/research/ghostty-config-linux-gnome.md
+# Path: ghostty/.config/ghostty/config.ghostty (Stow target: ~/.config/ghostty/)
+theme = light:Adwaita,dark:Catppuccin Mocha
+font-family = "JetBrains Mono"
+font-size = 12
+
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+shift+t=new_tab
+
+shell-integration-features = sudo
+
+# Per-machine overrides (gitignored).
+config-file = ?config.local
