@@ -1,5 +1,7 @@
 # lua/custom/ — our delta only (never edit vendored kickstart sections)
 
+Theme: `mizuki.lua` (Mizuki palette) + `init.lua` (termguicolors, loads theme).
+
 Add a plugin (vim.pack pattern, 3 lines):
 
 ```lua

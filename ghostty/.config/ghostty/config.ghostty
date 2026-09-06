@@ -1,6 +1,8 @@
 # Ghostty v1 baseline — see docs/research/ghostty-config-linux-gnome.md
 # Path: ghostty/.config/ghostty/config.ghostty (Stow target: ~/.config/ghostty/)
-theme = light:Adwaita,dark:Catppuccin Mocha
+# Mizuki is the house theme (see themes/mizuki); GNOME light/dark no longer
+# swaps the terminal, matching the dark-only bash/tmux/nvim scheme.
+theme = mizuki
 font-family = "JetBrains Mono"
 font-size = 12
 
