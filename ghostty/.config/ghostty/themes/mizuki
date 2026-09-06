@@ -1,0 +1,34 @@
+# Mizuki theme — Akiyama Mizuki palette on Dark Niigo Night.
+# Path: ghostty/.config/ghostty/themes/mizuki (Stow target: ~/.config/ghostty/themes/mizuki)
+# Anchors: Mizuki Pink #DDAACC (official image color), Hair Pink #F4A9C6,
+# Deep Ribbon #8E3B5C, Niigo Night #1E1B26, Pale Lace #F4E3EB, Uniform Gray #A2A6BD.
+# Bright slots 9-12/14 are systematic tints of their normal slot; cyan is a
+# steel-blue tint of Ice (no native Mizuki anchor for that hue).
+
+background = #1E1B26
+foreground = #F4E3EB
+
+cursor-color = #F4A9C6
+cursor-text = #1E1B26
+
+selection-background = #8E3B5C
+selection-foreground = #F4E3EB
+
+split-divider-color = #8E3B5C
+
+palette = 0=#2A2433
+palette = 1=#E56B7F
+palette = 2=#A8CFA0
+palette = 3=#E3C07F
+palette = 4=#9AB5D6
+palette = 5=#DDAACC
+palette = 6=#8AA8C8
+palette = 7=#B9B3C0
+palette = 8=#3A3344
+palette = 9=#F28BA0
+palette = 10=#BFE3B8
+palette = 11=#F0D29A
+palette = 12=#B4CBE8
+palette = 13=#F4A9C6
+palette = 14=#B8D4E8
+palette = 15=#F4E3EB

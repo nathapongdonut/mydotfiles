@@ -63,6 +63,38 @@ else
   install_ghostty_ubuntu
 fi
 
+# 2.5. oh-my-bash — idempotent clone-or-update into $HOME (unstowed external).
+# bash/.bashrc sources $OSH/oh-my-bash.sh when present, with a plain-PS1
+# fallback otherwise, so a failed/absent clone never breaks the shell.
+install_oh_my_bash() {
+  local osh_dir="${OSH:-$HOME/.oh-my-bash}"
+  local repo="https://github.com/ohmybash/oh-my-bash.git"
+  if [[ -d "$osh_dir/.git" ]]; then
+    git -C "$osh_dir" pull --ff-only --quiet || {
+      echo "warning: could not update oh-my-bash in $osh_dir (keeping existing)" >&2
+    }
+  elif [[ -e "$osh_dir" ]]; then
+    echo "warning: $osh_dir exists but is not a git checkout, skipping oh-my-bash install" >&2
+  else
+    git clone --depth 1 "$repo" "$osh_dir"
+  fi
+}
+
+install_oh_my_bash
+
+# 2.6. Ghostty themes — drop our known theme path before restowing.
+# A stale ~/.config/ghostty/themes/mizuki (manual copy, old/broken link)
+# would make stow abort with a conflict; removing it lets stow link fresh.
+# Only this repo-owned filename is touched, never anything else.
+refresh_ghostty_themes() {
+  local theme_link="$HOME/.config/ghostty/themes/mizuki"
+  if [[ -L "$theme_link" || -f "$theme_link" ]]; then
+    rm -f "$theme_link"
+  fi
+}
+
+refresh_ghostty_themes
+
 # 3. Stow packages (idempotent: -R restows, correct links are no-ops).
 # --no-folding: several packages share .config/, never let one shadow another.
 stow -d "$REPO" -t "$HOME" -R --no-folding "${PACKAGES[@]}" || {
