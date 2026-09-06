@@ -1,0 +1,3 @@
+# Copy to ~/.bashrc.local (gitignored) for per-machine bits. Never commit secrets.
+# export EDITOR=nvim
+# alias work='cd ~/work'

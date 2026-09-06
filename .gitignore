@@ -1,0 +1,4 @@
+.note
+# Local overrides (never commit secrets) — see CONTEXT.md
+**/.bashrc.local
+**/config.local
