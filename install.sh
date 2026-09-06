@@ -82,6 +82,19 @@ install_oh_my_bash() {
 
 install_oh_my_bash
 
+# 2.6. Ghostty themes — drop our known theme path before restowing.
+# A stale ~/.config/ghostty/themes/mizuki (manual copy, old/broken link)
+# would make stow abort with a conflict; removing it lets stow link fresh.
+# Only this repo-owned filename is touched, never anything else.
+refresh_ghostty_themes() {
+  local theme_link="$HOME/.config/ghostty/themes/mizuki"
+  if [[ -L "$theme_link" || -f "$theme_link" ]]; then
+    rm -f "$theme_link"
+  fi
+}
+
+refresh_ghostty_themes
+
 # 3. Stow packages (idempotent: -R restows, correct links are no-ops).
 # --no-folding: several packages share .config/, never let one shadow another.
 stow -d "$REPO" -t "$HOME" -R --no-folding "${PACKAGES[@]}" || {
