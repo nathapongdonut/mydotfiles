@@ -82,14 +82,17 @@ install_oh_my_bash() {
 
 install_oh_my_bash
 
-# 2.6. Ghostty themes — drop our known theme path before restowing.
-# A stale ~/.config/ghostty/themes/mizuki (manual copy, old/broken link)
-# would make stow abort with a conflict; removing it lets stow link fresh.
-# Only this repo-owned filename is touched, never anything else.
+# 2.6. Ghostty themes — clear only a stale symlink before restowing.
+# A stale ~/.config/ghostty/themes/mizuki link (old/broken) would make stow
+# abort; removing the link lets stow link fresh. A regular file (user
+# hand-placed, not in repo) is left alone so stow fails loudly with the
+# backup/--adopt hint per ADR-0001 — never silently overwrite.
 refresh_ghostty_themes() {
   local theme_link="$HOME/.config/ghostty/themes/mizuki"
-  if [[ -L "$theme_link" || -f "$theme_link" ]]; then
+  if [[ -L "$theme_link" ]]; then
     rm -f "$theme_link"
+  elif [[ -e "$theme_link" ]]; then
+    echo "warning: $theme_link exists and is not a symlink, leaving for stow conflict hint" >&2
   fi
 }
 
@@ -113,4 +116,4 @@ fi
 echo "Done. Next steps:"
 echo "  - Restart Ghostty / tmux (or log out/in for GNOME keys to settle)."
 echo "  - Per-machine secrets go in Local overrides (never commit):"
-echo "    ~/.bashrc.local, ~/.config/ghostty/config.local, lua/custom/."
+echo "    ~/.bashrc.local, ~/.config/ghostty/config.local"

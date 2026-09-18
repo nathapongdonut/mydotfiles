@@ -84,3 +84,12 @@ if [ -f "$HOME/.bashrc.local" ]; then
   # shellcheck disable=SC1090
   . "$HOME/.bashrc.local"
 fi
+
+# -- set Editor to nvim --
+
+export EDITOR='nvim'
+
+
+# -- set bin path --
+
+export PATH="$HOME/.opencode/bin:$PATH"
