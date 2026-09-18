@@ -8,6 +8,16 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # dotfiles, so it is invoked directly in step 4, never stowed.
 PACKAGES=(bash ghostty tmux nvim)
 
+# 0. Uninstall — symlinks only via `stow -D`.
+if [[ "${1:-}" == "--uninstall" ]]; then
+  stow -d "$REPO" -t "$HOME" -D "${PACKAGES[@]}" || true
+  echo "Uninstalled: removed stowed links for: ${PACKAGES[*]}."
+  echo "Left behind (untouched): system packages, ~/.oh-my-bash, Local overrides"
+  echo "  (~/.bashrc.local, ~/.config/ghostty/config.local), and GNOME keys (gsettings)."
+  echo "To restow later, re-run ./install.sh."
+  exit 0
+fi
+
 have() { command -v "$1" >/dev/null 2>&1; }
 
 # 1. Distro detect via /etc/os-release ($ID).

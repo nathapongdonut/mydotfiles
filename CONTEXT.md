@@ -17,7 +17,7 @@ The directory links are created in, always `$HOME` for this project.
 _Avoid_: destination, home dir, install dir
 
 **Install script**:
-The single idempotent `install.sh` that detects distro via `/etc/os-release`, installs distro packages, then restows packages.
+The single idempotent `install.sh` that detects distro via `/etc/os-release`, installs distro packages, then restows packages. `--uninstall` removes the package links (symlinks only).
 _Avoid_: bootstrap, setup script, installer
 
 **Local override**:
