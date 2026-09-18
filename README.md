@@ -19,7 +19,7 @@ Re-running is safe (`stow -R` restow; package managers no-op when installed). On
 ## Features
 
 - `bash` — oh-my-bash + versioned `mizuki` theme (plain-PS1 fallback), see `bash/.bashrc`
-- `ghostty` — `mizuki` house theme, JetBrains Mono 12, `config-file = ?config.local` for overrides
+- `ghostty` — `mizuki` house theme, JetBrains Mono 12, frosted-glass chrome (0.8 opacity + blur, translucent cells included), `config-file = ?config.local` for overrides
 - `tmux` — C-b prefix, true-color, mouse, Mizuki statusline, plugin-free
 - `nvim` — kickstart snapshot + `lua/custom/` mizuki delta
 - `gnome` — v1 minimal keys (prefer-dark, 3 favorites, Nautilus show-hidden), no extensions
