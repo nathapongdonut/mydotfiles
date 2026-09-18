@@ -11,7 +11,7 @@ require('repo').setup {}
 ```
 
 Then inside nvim: `:lua vim.pack.update()` (`:write` applies),
-then `git add nvim/.config/nvim/nvim-pack-lock.json` and commit.
+then from the repo root `git add nvim/.config/nvim/nvim-pack-lock.json` and commit.
 
 Update the base: `git fetch upstream master`, review diff, re-apply
 this directory. Verify with `nvim --headless '+checkhealth' +q`.
