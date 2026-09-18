@@ -15,13 +15,16 @@ shell-integration-features = sudo
 # Per-machine overrides (gitignored).
 config-file = ?config.local
 
-# remove window upper-bar
+# No server-side decorations: borderless window, top bar included.
 window-decoration = false
 
-# Make a ghostty window transparents and blur the background
+# Frosted-glass shell: translucent window + blurred wallpaper behind it.
 background-opacity = 0.8
-background-blur-radius = 20
+background-blur = 20
 
-# Padding context
+# Full glass: terminal apps (nvim/tmux) go translucent too — readability tradeoff accepted.
+background-opacity-cells = true
+
+# Content padding between terminal text and window edge.
 window-padding-x = 10
 window-padding-y = 10
