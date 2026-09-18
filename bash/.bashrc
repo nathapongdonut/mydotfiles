@@ -78,13 +78,6 @@ alias gs='git status --short --branch'
 alias gd='git diff'
 alias ..='cd ..'
 
-# --- Local override (never commit secrets here) ---
-# Per-machine bits go in ~/.bashrc.local (gitignored).
-if [ -f "$HOME/.bashrc.local" ]; then
-  # shellcheck disable=SC1090
-  . "$HOME/.bashrc.local"
-fi
-
 # -- set Editor to nvim --
 
 export EDITOR='nvim'
@@ -93,3 +86,11 @@ export EDITOR='nvim'
 # -- set bin path --
 
 export PATH="$HOME/.opencode/bin:$PATH"
+
+# --- Local override (never commit secrets here) ---
+# Per-machine bits go in ~/.bashrc.local (gitignored). Sourced last so the
+# Local override always wins over versioned defaults above.
+if [ -f "$HOME/.bashrc.local" ]; then
+  # shellcheck disable=SC1090
+  . "$HOME/.bashrc.local"
+fi

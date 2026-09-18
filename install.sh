@@ -4,7 +4,9 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PACKAGES=(bash ghostty tmux nvim gnome)
+# gnome/ holds an executable helper (gsettings.sh), not $HOME-relative
+# dotfiles, so it is invoked directly in step 4, never stowed.
+PACKAGES=(bash ghostty tmux nvim)
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
