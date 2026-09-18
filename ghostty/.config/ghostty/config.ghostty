@@ -14,3 +14,14 @@ shell-integration-features = sudo
 
 # Per-machine overrides (gitignored).
 config-file = ?config.local
+
+# remove window upper-bar
+window-decoration = false
+
+# Make a ghostty window transparents and blur the background
+background-opacity = 0.8
+background-blur-radius = 20
+
+# Padding context
+window-padding-x = 10
+window-padding-y = 10
