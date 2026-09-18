@@ -16,8 +16,6 @@ gsettings set org.gnome.shell favorite-apps \
 # Nautilus prefs.
 gsettings set org.gnome.nautilus.preferences show-hidden-files true || true
 
-# Keybindings: keep GNOME defaults in v1 (version deltas here when decided).
-# Example (uncomment when ticket #7 decides):
-# gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']" || true
+# Keybindings: keep GNOME defaults in v1.
 
 echo "GNOME keys applied (v1 minimal set)."

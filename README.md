@@ -31,7 +31,6 @@ Re-running is safe (`stow -R` restow; package managers no-op when installed). On
 
 - `~/.bashrc.local` (see `bash/.bashrc.local.example`)
 - `~/.config/ghostty/config.local` (wired via `config-file = ?config.local`)
-- `nvim/.config/nvim/lua/custom/` (see its README for the 3-line `vim.pack.add` pattern)
 
 ## Docs
 
